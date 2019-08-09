@@ -1,10 +1,10 @@
 {
   "name": "es-visible-img-echo",
-  "version": "1.7.3-1",
+  "version": "1.7.3-2",
   "description": "Lazy-loading with data-* attributes, offset and throttle options",
-  "author": "@toddmotto",
+  "author": "@cd-fez",
   "license": "MIT",
-  "homepage": "https://github.com/toddmotto/echo",
+  "homepage": "https://github.com/cd-fez/es-visible-img-echo",
   "devDependencies": {
     "gulp": "~3.7.0",
     "gulp-uglify": "~0.3.0",
