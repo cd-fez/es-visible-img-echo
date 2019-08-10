@@ -1,4 +1,3 @@
-/*! echo-js v1.7.3 | (c) 2016 @toddmotto | https://github.com/toddmotto/echo */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(function() {
@@ -84,7 +83,7 @@
     for (var i = 0; i < length; i++) {
       elem = nodes[i];
       if (inView(elem, view)) {
-        let randomClass = 'echo-img-' + Math.random().toString().split('.')[1];
+        var randomClass = 'echo-img-' + Math.random().toString().split('.')[1];
         $(elem).addClass(randomClass);
         if (unload) {
           elem.setAttribute('data-echo-placeholder', elem.src);
@@ -93,10 +92,10 @@
         if (elem.getAttribute('data-echo-background') !== null) {
           elem.style.backgroundImage = 'url(' + elem.getAttribute('data-echo-background') + ')';
         } else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
-          let clonedNode = $(elem).clone();
+          var clonedNode = $(elem).clone();
           clonedNode.data('echo-lazy-img-class', randomClass);
           clonedNode.addClass('hidden');
-          let dataEcho = elem.getAttribute('data-echo');
+          var dataEcho = elem.getAttribute('data-echo');
           clonedNode.attr('src', dataEcho);
           clonedNode.on('load', function() {
             $('.' + clonedNode.data('echo-lazy-img-class'))[0].src = dataEcho;
