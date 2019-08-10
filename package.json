@@ -1,6 +1,6 @@
 {
   "name": "es-visible-img-echo",
-  "version": "1.7.3-2",
+  "version": "1.7.3-4",
   "description": "Lazy-loading with data-* attributes, offset and throttle options",
   "author": "@cd-fez",
   "license": "MIT",
