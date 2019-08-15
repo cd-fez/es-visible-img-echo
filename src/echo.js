@@ -23,12 +23,13 @@
   };
 
   var inView = function(element, view) {
-    if (isHidden(element)) {
-      return false;
-    }
+    return true;
+    // if (isHidden(element)) {
+    //   return false;
+    // }
 
-    var box = element.getBoundingClientRect();
-    return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
+    // var box = element.getBoundingClientRect();
+    // return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
   };
 
   var debounceOrThrottle = function() {
