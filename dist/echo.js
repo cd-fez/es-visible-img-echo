@@ -23,13 +23,12 @@
   };
 
   var inView = function(element, view) {
-    return true;
-    // if (isHidden(element)) {
-    //   return false;
-    // }
+    if (isHidden(element)) {
+      return false;
+    }
 
-    // var box = element.getBoundingClientRect();
-    // return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
+    var box = element.getBoundingClientRect();
+    return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
   };
 
   var debounceOrThrottle = function() {
@@ -99,7 +98,7 @@
           var dataEcho = elem.getAttribute('data-echo');
           clonedNode.attr('src', dataEcho);
           clonedNode.on('load', function() {
-            $('.' + clonedNode.data('echo-lazy-img-class'))[0].src = dataEcho;
+            $('.' + this.data('echo-lazy-img-class'))[0].src = this.src;
           });
           $(elem.parentNode).append(clonedNode);
         }
