@@ -23,6 +23,10 @@
   };
 
   var inView = function(element, view) {
+    if ($(element).hasClass('js-immediately-load')) {
+      return true;
+    }
+
     if (isHidden(element)) {
       return false;
     }
