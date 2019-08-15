@@ -98,7 +98,7 @@
           var dataEcho = elem.getAttribute('data-echo');
           clonedNode.attr('src', dataEcho);
           clonedNode.on('load', function() {
-            $('.' + this.data('echo-lazy-img-class'))[0].src = this.src;
+            $('.' + $(this).data('echo-lazy-img-class'))[0].src = this.src;
           });
           $(elem.parentNode).append(clonedNode);
         }
