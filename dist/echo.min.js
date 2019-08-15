@@ -96,7 +96,7 @@
         } else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
           var clonedNode = $(elem).clone();
           var randomClass = 'echo-img-' + Math.random().toString().split('.')[1];
-          if (!$(ele).hasClass('hasEchoImgClass')) {
+          if (!$(elem).hasClass('hasEchoImgClass')) {
             $(elem).addClass(randomClass);
             $(elem).addClass('hasEchoImgClass');
             clonedNode.data('echo-lazy-img-class', randomClass);
