@@ -23,6 +23,10 @@
   };
 
   var inView = function(element, view) {
+    if ($(element).hasClass('js-immediately-load')) {
+      return true;
+    }
+
     if (isHidden(element)) {
       return false;
     }
@@ -83,8 +87,6 @@
     for (var i = 0; i < length; i++) {
       elem = nodes[i];
       if (inView(elem, view)) {
-        var randomClass = 'echo-img-' + Math.random().toString().split('.')[1];
-        $(elem).addClass(randomClass);
         if (unload) {
           elem.setAttribute('data-echo-placeholder', elem.src);
         }
@@ -93,12 +95,18 @@
           elem.style.backgroundImage = 'url(' + elem.getAttribute('data-echo-background') + ')';
         } else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
           var clonedNode = $(elem).clone();
-          clonedNode.data('echo-lazy-img-class', randomClass);
+          var randomClass = 'echo-img-' + Math.random().toString().split('.')[1];
+          if (!$(elem).hasClass('hasEchoImgClass')) {
+            $(elem).addClass(randomClass);
+            $(elem).addClass('hasEchoImgClass');
+            clonedNode.data('echo-lazy-img-class', randomClass);
+          }
+
           clonedNode.addClass('hidden');
           var dataEcho = elem.getAttribute('data-echo');
           clonedNode.attr('src', dataEcho);
           clonedNode.on('load', function() {
-            $('.' + clonedNode.data('echo-lazy-img-class'))[0].src = dataEcho;
+            $('.' + $(this).data('echo-lazy-img-class'))[0].src = this.src;
           });
           $(elem.parentNode).append(clonedNode);
         }
